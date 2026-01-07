@@ -9,7 +9,7 @@ const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "BuildVerse - Smart Construction & Renovation Platform",
+  title: "SMARTGENiEE",
   description:
     "Experience the future of home construction and renovation with immersive 3D virtual tours, AI-powered design recommendations, and smart budget estimation.",
   generator: "v0.app",

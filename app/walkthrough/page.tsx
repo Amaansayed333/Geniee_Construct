@@ -1,4 +1,6 @@
-import { WalkthroughExperience } from "@/components/walkthrough-experience"
+// import { WalkthroughExperience } from "@/components/walkthrough-experience"
+import { VideoComponent} from "@/components/videoComponent"
+import { Navigation } from "@/components/navigation"
 
 export const metadata = {
   title: "3D Virtual Walkthrough - BuildVerse",
@@ -7,8 +9,12 @@ export const metadata = {
 
 export default function WalkthroughPage() {
   return (
-    <main className="h-screen bg-background">
-      <WalkthroughExperience />
-    </main>
+    <>
+    {/* <Navigation /> */}
+    <VideoComponent />
+
+    </>
+      
+    
   )
 }

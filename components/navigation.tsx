@@ -67,7 +67,7 @@ export function Navigation() {
                 </div>
               </motion.div>
               <div className="flex flex-col">
-                <span className="text-xl md:text-2xl font-bold bg-gradient-to-r from-foreground via-secondary to-accent bg-clip-text text-transparent">
+                <span className="text-xl md:text-2xl font-bold bg-gradient-to-r from-foreground via-secondary to-accent bg-clip-text ">
                   Smartgeniee
                 </span>
                 <span className="text-[10px] text-muted-foreground tracking-widest uppercase">Future of Building</span>
