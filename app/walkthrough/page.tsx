@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function WalkthroughPage() {
   return (
-    <main className="h-screen bg-white">
+    <main className="h-screen bg-background">
       <WalkthroughExperience />
     </main>
   )

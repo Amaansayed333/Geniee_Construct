@@ -4,6 +4,9 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight, FileText, CheckCircle } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
+import { Canvas } from "@react-three/fiber"
+import { OrbitControls, Environment } from "@react-three/drei"
+import { BottleModel } from "@/components/3d/bottle-model"
 
 export function Hero() {
   return (
@@ -28,26 +31,14 @@ export function Hero() {
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight tracking-tight">
               <motion.span
-                className="inline-block"
-                animate={{
-                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-                }}
-                transition={{
-                  duration: 5,
-                  repeat: Number.POSITIVE_INFINITY,
-                  ease: "linear",
-                }}
-                style={{
-                  background: "linear-gradient(90deg, #000 30%, #FFD700 50%, #000 70%)",
-                  backgroundSize: "200% auto",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
-                Your Home's
-                <br />
-                Lifetime Partner
+                className="inline-block text-black"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                  >
+                    Your Home's
+                    <br />
+                    Lifetime Partner
               </motion.span>
             </h1>
 
@@ -95,11 +86,17 @@ export function Hero() {
           >
             <div className="relative w-full max-w-lg aspect-square lg:aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl border border-white/10">
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10" />
-              <img
-                src="/friendly-yellow-genie-character-with-magical-lamp-.jpg"
-                alt="Smartgeniee Construction Partner"
-                className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
-              />
+              <Canvas
+                className="w-full h-full"
+                camera={{ position: [0, 0, 5], fov: 50 }}
+                gl={{ alpha: true }}
+              >
+                <Environment preset="studio" />
+                <ambientLight intensity={0.6} />
+                <directionalLight position={[5, 5, 5]} intensity={1} />
+                <OrbitControls enableZoom={false} enablePan={false} />
+                <BottleModel scale={1.5} />
+              </Canvas>
 
               {/* Floating Badge */}
               <div className="absolute bottom-8 left-8 right-8 z-20 bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/20">

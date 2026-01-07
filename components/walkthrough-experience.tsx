@@ -22,7 +22,7 @@ export function WalkthroughExperience() {
   console.log("[v0] Rendering WalkthroughExperience, isLoading:", isLoading)
 
   return (
-    <div className="relative w-full h-screen bg-white overflow-hidden">
+    <div className="relative w-full h-screen bg-background overflow-hidden">
       {/* 3D Canvas */}
       <Canvas
         camera={{ position: [0, 1.6, 5], fov: 75 }}
@@ -36,7 +36,7 @@ export function WalkthroughExperience() {
       </Canvas>
 
       {isLoading && (
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none bg-white/95 backdrop-blur-sm z-50">
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none bg-background/95 backdrop-blur-sm z-50">
           <div className="glass-panel px-6 py-4 rounded-xl flex items-center gap-3">
             <Loader className="w-5 h-5 animate-spin text-secondary" />
             <span className="text-foreground">Loading 3D Environment...</span>

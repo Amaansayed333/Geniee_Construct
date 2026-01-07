@@ -1,170 +1,264 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
-
+/* ============================= */
+/* ROOT THEME */
+/* ============================= */
 :root {
-  /* Updated to white, yellow, gray, black color scheme */
-  --background: oklch(1 0 0); /* Pure white */
-  --foreground: oklch(0.15 0 0); /* Deep black */
-  --card: oklch(1 0 0); /* White */
-  --card-foreground: oklch(0.15 0 0); /* Black */
-  --popover: oklch(1 0 0); /* White */
-  --popover-foreground: oklch(0.15 0 0); /* Black */
-  --primary: oklch(0.15 0 0); /* Black for primary */
-  --primary-foreground: oklch(1 0 0); /* White text on black */
-  --secondary: oklch(0.85 0.15 85); /* Bright yellow */
-  --secondary-foreground: oklch(0.15 0 0); /* Black text on yellow */
-  --muted: oklch(0.96 0 0); /* Very light gray */
-  --muted-foreground: oklch(0.45 0 0); /* Medium gray */
-  --accent: oklch(0.92 0.08 95); /* Light yellow */
-  --accent-foreground: oklch(0.15 0 0); /* Black text */
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.88 0 0); /* Light gray border */
-  --input: oklch(0.88 0 0); /* Light gray */
-  --ring: oklch(0.85 0.15 85); /* Yellow ring */
-  --chart-1: oklch(0.85 0.15 85);
-  --chart-2: oklch(0.45 0 0);
-  --chart-3: oklch(0.65 0 0);
-  --chart-4: oklch(0.92 0.08 95);
-  --chart-5: oklch(0.25 0 0);
-  --radius: 0.75rem;
-  --sidebar: oklch(1 0 0);
-  --sidebar-foreground: oklch(0.15 0 0);
-  --sidebar-primary: oklch(0.15 0 0);
-  --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.96 0 0);
-  --sidebar-accent-foreground: oklch(0.15 0 0);
-  --sidebar-border: oklch(0.88 0 0);
-  --sidebar-ring: oklch(0.85 0.15 85);
+  --bg-primary: #FFDAB3;   /* 70% background */
+  --bg-secondary: #FFDAB3; /* 30% blocks */
+  --text-main: #2b1f1f;
+  --white: #ffffff;
+  --black: #000000;
+
+  --radius-xl: 2rem;
+  --radius-lg: 1.5rem;
+  --radius-md: 1rem;
 }
 
-.dark {
-  --background: oklch(0.12 0 0);
-  --foreground: oklch(0.98 0 0);
-  --card: oklch(0.15 0 0);
-  --card-foreground: oklch(0.98 0 0);
-  --popover: oklch(0.15 0 0);
-  --popover-foreground: oklch(0.98 0 0);
-  --primary: oklch(0.98 0 0);
-  --primary-foreground: oklch(0.15 0 0);
-  --secondary: oklch(0.85 0.15 85);
-  --secondary-foreground: oklch(0.15 0 0);
-  --muted: oklch(0.2 0 0);
-  --muted-foreground: oklch(0.6 0 0);
-  --accent: oklch(0.92 0.08 95);
-  --accent-foreground: oklch(0.15 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.25 0 0);
-  --input: oklch(0.25 0 0);
-  --ring: oklch(0.85 0.15 85);
-  --chart-1: oklch(0.85 0.15 85);
-  --chart-2: oklch(0.45 0 0);
-  --chart-3: oklch(0.65 0 0);
-  --chart-4: oklch(0.92 0.08 95);
-  --chart-5: oklch(0.25 0 0);
-  --sidebar: oklch(0.15 0 0);
-  --sidebar-foreground: oklch(0.98 0 0);
-  --sidebar-primary: oklch(0.85 0.15 85);
-  --sidebar-primary-foreground: oklch(0.15 0 0);
-  --sidebar-accent: oklch(0.2 0 0);
-  --sidebar-accent-foreground: oklch(0.98 0 0);
-  --sidebar-border: oklch(0.25 0 0);
-  --sidebar-ring: oklch(0.85 0.15 85);
+/* ============================= */
+/* BASE */
+/* ============================= */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  font-family: "Geist", system-ui, sans-serif;
 }
 
-@theme inline {
-  --font-sans: "Geist", "Geist Fallback";
-  --font-mono: "Geist Mono", "Geist Mono Fallback";
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
+/* ============================= */
+/* SECTION SYSTEM */
+/* ============================= */
+.section-primary {
+  background-color: var(--bg-primary);
+  padding: 5rem 2rem;
 }
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+.section-secondary {
+  background-color: var(--bg-secondary);
+  padding: 5rem 2rem;
 }
 
-/* Updated glass morphism for new color scheme */
+.section-block {
+  border-radius: var(--radius-xl);
+  margin: 3rem auto;
+  max-width: 1400px;
+}
+
+/* ============================= */
+/* NAVBAR */
+/* ============================= */
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: transparent;
+}
+
+.nav-link {
+  background: var(--white);
+  padding: 0.5rem 1.2rem;
+  border-radius: 999px;
+  font-weight: 500;
+  color: var(--text-main);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  transition: all 0.25s ease;
+}
+
+.nav-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+  color: var(--black);
+}
+
+/* ============================= */
+/* HERO IMAGE */
+/* ============================= */
+.hero-image-wrapper {
+  background: var(--white);
+  padding: 1rem;
+  border-radius: 2.5rem;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.20);
+}
+
+/* ============================= */
+/* CARDS – PURE WHITE */
+/* ============================= */
+.card,
+.card-premium,
+.feature-card {
+  background: var(--white) !important;
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow:
+    0 12px 30px rgba(0,0,0,0.10),
+    0 6px 12px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.04);
+  transition: all 0.3s ease;
+}
+
+.card:hover,
+.card-premium:hover,
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 22px 50px rgba(0,0,0,0.18),
+    0 10px 20px rgba(0,0,0,0.12);
+}
+
+/* ============================= */
+/* ICON CONTAINERS (like your Plan, Design, Build icons) */
+/* ============================= */
+.icon-box {
+  background: var(--white);
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+/* ============================= */
+/* BUTTONS – BLACK + WHITE */
+/* ============================= */
+button,
+.btn-primary {
+  background-color: var(--black) !important;
+  color: var(--white) !important;
+  border-radius: 999px;
+  padding: 0.75rem 1.75rem;
+  font-weight: 600;
+  border: none;
+  transition: all 0.25s ease;
+}
+
+button:hover,
+.btn-primary:hover {
+  background-color: #111111 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+}
+
+/* ============================= */
+/* HEADINGS & TEXT */
+/* ============================= */
+.heading-strong {
+  color: var(--black);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.text-soft {
+  color: #4a3a3a;
+}
+
+/* ============================= */
+/* FORMS */
+/* ============================= */
+input,
+select,
+textarea {
+  background: var(--white);
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(0,0,0,0.12);
+  transition: all 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--black);
+  box-shadow: 0 0 0 3px rgba(0,0,0,0.15);
+}
+
+/* ============================= */
+/* GLASS PANEL (for testimonial on hero) */
+/* ============================= */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.12),
+    inset 0 1px 0 rgba(255,255,255,0.6);
 }
 
-.dark .glass-panel {
-  background: rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+/* ============================= */
+/* DIVIDERS */
+/* ============================= */
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(0,0,0,0.25),
+    transparent
+  );
+  margin: 4rem 0;
 }
 
-/* Custom animations for futuristic hero */
+/* ============================= */
+/* ANIMATIONS */
+/* ============================= */
 @keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-}
-
-@keyframes glow {
-  0%,
-  100% {
-    opacity: 1;
-    filter: brightness(1);
-  }
-  50% {
-    opacity: 0.8;
-    filter: brightness(1.2);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-18px); }
 }
 
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
 
-.animate-glow {
-  animation: glow 3s ease-in-out infinite;
+/* ============================= */
+/* UTILITY */
+/* ============================= */
+.rounded-xl {
+  border-radius: var(--radius-xl);
+}
+
+.soft-shadow {
+  box-shadow: 0 10px 25px rgba(0,0,0,0.10);
+}
+
+/* ============================= */
+/* ENFORCE PURE WHITE CARDS */
+/* ============================= */
+.card, .card-premium, .feature-card, [class*="bg-card"] {
+  background: #ffffff !important;
+}
+
+.icon-box {
+  background: #ffffff !important;
+}
+
+/* ============================= */
+/* ENFORCE WHITE PILL NAV ITEMS */
+/* ============================= */
+nav a {
+  background: var(--white) !important;
+  padding: 0.5rem 1.2rem !important;
+  border-radius: 999px !important;
+  font-weight: 500 !important;
+  color: var(--text-main) !important;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12) !important;
+  transition: all 0.25s ease !important;
+}
+
+nav a:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.18) !important;
+  color: var(--black) !important;
+}
+
+/* ============================= */
+/* ENFORCE WHITE BACKGROUNDS FOR SELECTED/ACTIVE ITEMS */
+/* ============================= */
+[data-state="checked"], [data-state="active"] {
+  background: #ffffff !important;
 }

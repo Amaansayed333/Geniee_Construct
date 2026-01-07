@@ -24,6 +24,7 @@ export function Navigation() {
     { href: "/#features", label: "Features" },
     { href: "/walkthrough", label: "Virtual Tour" },
     { href: "/themes", label: "Themes" },
+    { href: "/shifting", label: "Shifting Services" },
     { href: "/estimator", label: "Budget Estimator" },
   ]
 
@@ -35,7 +36,7 @@ export function Navigation() {
         transition={{ type: "spring", stiffness: 100, damping: 20 }}
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-          isScrolled ? "bg-white/80 backdrop-blur-xl shadow-lg border-b border-secondary/20" : "bg-transparent",
+          isScrolled ? "bg-background/80 backdrop-blur-xl shadow-lg border-b border-secondary/20" : "bg-transparent",
         )}
       >
         {/* Animated top border */}
@@ -177,7 +178,7 @@ export function Navigation() {
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: "100%", opacity: 0 }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="fixed top-16 right-4 bottom-4 w-72 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-secondary/20 z-50 lg:hidden overflow-hidden"
+              className="fixed top-16 right-4 bottom-4 w-72 bg-secondary/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-secondary/20 z-50 lg:hidden overflow-hidden"
             >
               {/* Gradient border effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-secondary/20 via-transparent to-accent/20 pointer-events-none" />
