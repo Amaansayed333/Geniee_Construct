@@ -1,8 +1,9 @@
 import { Hero } from "@/components/hero"
-import { Features } from "@/components/features"
-import { VirtualWalkthroughCTA } from "@/components/virtual-walkthrough-cta"
-import { ThemeCatalogPreview } from "@/components/theme-catalog-preview"
-import { BudgetEstimatorPreview } from "@/components/budget-estimator-preview"
+import { TrustBar } from "@/components/trust-bar"
+import { JourneyServices } from "@/components/journey-services"
+import { ProcessSteps } from "@/components/process-steps"
+import { ProjectShowcase } from "@/components/project-showcase"
+import { Testimonials } from "@/components/testimonials"
 import { ContactSection } from "@/components/contact-section"
 import { Navigation } from "@/components/navigation"
 
@@ -11,10 +12,11 @@ export default function HomePage() {
     <main className="min-h-screen bg-background">
       <Navigation />
       <Hero />
-      <Features />
-      <VirtualWalkthroughCTA />
-      <ThemeCatalogPreview />
-      <BudgetEstimatorPreview />
+      <TrustBar />
+      <JourneyServices />
+      <ProcessSteps />
+      <ProjectShowcase />
+      <Testimonials />
       <ContactSection />
     </main>
   )
